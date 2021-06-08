@@ -16,8 +16,11 @@ export default async function helperStatusActions721(
 ) {
   if (web3 && sellOrderList && availableSellOrder721 && nftList) {
     try {
+      console.log('1');
       const erc721Instances = await new web3.eth.Contract(ERC721.abi, addressToken);
+      console.log('2');
       const sellId = await sellOrderList.methods.getLatestSellIdERC721(addressToken, id).call();
+      console.log('3');
       let tokenOwner;
       // check if user is owner of token
       if (!!sellId.found) {
